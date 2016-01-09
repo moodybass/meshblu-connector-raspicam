@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-## meshblu-raspicam
+
+### meshblu-raspicam
 
 [![Build Status](https://travis-ci.org/octoblu/meshblu-raspicam.svg?branch=master)](https://travis-ci.org/octoblu/meshblu-raspicam)
 [![Code Climate](https://codeclimate.com/github/octoblu/meshblu-raspicam/badges/gpa.svg)](https://codeclimate.com/github/octoblu/meshblu-raspicam)
