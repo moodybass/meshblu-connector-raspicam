@@ -7,10 +7,7 @@
 [![npm version](https://badge.fury.io/js/meshblu-raspicam.svg)](http://badge.fury.io/js/meshblu-raspicam)
 [![Gitter](https://badges.gitter.im/octoblu/help.svg)](https://gitter.im/octoblu/help)
 
-A Meshblu connector for use in Octoblu or with other services.
-
-### meshblu-raspicam
-Meshblu Connector for the Raspberry Pi Camera
+Meshblu Connector for the Raspberry Pi Camera for use in Octoblu and other services.
 
 This is a Meshblu Connector for the Raspberry Pi Camera, it uses node-raspicam (https://github.com/troyth/node-raspicam) which is 
 a node wrapper for raspistill - the default software for taking images on the RPi Camera.
