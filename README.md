@@ -25,12 +25,13 @@ easily modified to output all the image formats and video. The connector is a sc
 2. Configured Raspberry Pi for Octoblu - the simplest thing to do is configure your RPi as a Gateblu (https://gateblu.readme.io/docs/raspberry-pi)
 
 ## Usage:
-1. npm install meshblu-raspicam
-2. Create a Generic Device, grab the UUID and Token and add to meshblu.json
-3. From the meshblu-raspicam directory, do: npm start
-4. meshblu-raspicam will then connect to Octoblu.
-5. Create your flow, add in your new connector
-6. Take photos!
+1. Git Clone this repo to your RPi
+2. npm install meshblu-raspicam
+3. Create a Generic Device, grab the UUID and Token and add to meshblu.json
+4. From the meshblu-raspicam directory, do: npm start
+5. meshblu-raspicam will then connect to Octoblu.
+6. Create your flow, add in your new connector
+7. Take photos!
 
 ## Options
 The vast majority of the options provided with node-raspicam are included.  You can configure these from within your flow.  
