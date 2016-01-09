@@ -1,0 +1,49 @@
+{
+  "name": "meshblu-raspicam",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moodybass/meshblu-raspicam.git"
+  },
+  "version": "1.0.0",
+  "main": "connector.js",
+  "scripts": {
+    "preinstall": "node -e \"try{require('./skip-install.js')}catch(e){}\"",
+    "start": "node command.js",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "lodash": "^3.10.1",
+    "meshblu": "^1.32.0",
+    "meshblu-config": "^3.1.1",
+    "request": "*",
+    "tar": "*",
+    "fstream": "*",
+	"raspicam":"^0.2.13"
+  },
+  "platformDependencies": {
+    "darwin": [],
+    "win32": [],
+    "win64": [],
+    "linux": [],
+    "android": [],
+    "ios": []
+  },
+  "license": "MIT",
+  "keywords": [
+    "meshblu-connector",
+    "gateblu"
+  ],
+  "description": "[![Build Status](https://travis-ci.org/octoblu/meshblu-raspicam.svg?branch=master)](https://travis-ci.org/octoblu/meshblu-raspicam) [![Code Climate](https://codeclimate.com/github/octoblu/meshblu-raspicam/badges/gpa.svg)](https://codeclimate.com/github/octoblu/meshblu-raspicam) [![Test Coverage](https://codeclimate.com/github/octoblu/meshblu-raspicam/badges/coverage.svg)](https://codeclimate.com/github/octoblu/meshblu-raspicam) [![npm version](https://badge.fury.io/js/meshblu-raspicam.svg)](http://badge.fury.io/js/meshblu-raspicam) [![Gitter](https://badges.gitter.im/octoblu/help.svg)](https://gitter.im/octoblu/help)",
+  "bugs": {
+    "url": "https://github.com/octoblu/meshblu-raspicam/issues"
+  },
+  "homepage": "https://github.com/octoblu/meshblu-raspicam#readme",
+  "bundleDependencies": [
+    "request",
+    "tar",
+    "fstream"
+  ],
+  "devDependencies": {},
+  "author": "John Moody"
+}
