@@ -19,6 +19,7 @@
     "request": "*",
     "tar": "*",
     "fstream": "*",
+    "base64-img": "^1.0.3",
 	"raspicam":"^0.2.13"
   },
   "platformDependencies": {
