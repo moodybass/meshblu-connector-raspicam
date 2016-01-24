@@ -59,35 +59,20 @@ var MESSAGE_SCHEMA = {
       "title": "Set image saturation (-100 to 100)",
       "default": "0"
     },
-     "photoISO": {
-      "type": "string",
-      "title": "Set capture ISO",
-      "default": "100"
-    },
-     "photoev": {
-      "type": "string",
-      "title": "Set EV compensation",
-      "default": "0"
-    },
       "photoexposure": {
       "type": "string",
       "title": "Set exposure mode (see options in docs)",
       "default": "auto"
     },
-    "photoawb": {
+	 "photoawb": {
       "type": "string",
-      "title": "Set AWB mode (see options in docs)",
-      "default": "auto"    
+      "title": "Set automatic white balance (AWB)",
+      "default": "auto" 
     },
     "photoimxfx": {
       "type": "string",
       "title": "Set image effect (see options in docs)",
       "default": "none" 
-    },
-   "photocolfx": {
-      "type": "string",
-      "title": "Set colour effect (U:V)",
-       "default": "0:0"
     },
     "photometering": {
       "type": "string",
@@ -138,12 +123,10 @@ Plugin.prototype.onMessage = function(message){
         contrast: message.payload.photocontrast,
         brightness: message.payload.photobrightness,
         saturation: message.payload.photosaturation,
-        ISO: message.payload.photoISO,
-        ev: message.payload.photoev,
         exposure: message.payload.photoexposure,
-        awb: message.payload.photoawb,
         imxfx: message.payload.photoimxfx,
-        colfx: message.payload.photocolfx,
+     // colfx: message.payload.photocolfx, // seems to cause green images
+        awb: message.payload.photoawb,
         metering: message.payload.photometering,
         rotation: message.payload.photorotation
     };  
@@ -177,3 +160,4 @@ module.exports = {
   optionsSchema: OPTIONS_SCHEMA,
   Plugin: Plugin
 };
+
