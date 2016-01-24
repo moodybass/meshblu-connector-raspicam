@@ -150,7 +150,7 @@ Plugin.prototype.onMessage = function(message){
 // create raspicam object
 var camera = new RaspiCam( opts );
 // Take photo
-camera.start( opts );
+var takephoto = camera.start( opts );
 
 //Send it back to Octoblu
     base64Img.base64(photofile, function(err, data) {
