@@ -7,7 +7,7 @@ var base64Img = require('base64-img');
 var _  = require("lodash");
 var fs = require('fs');
 
-// Static RaspiCam Options 
+// Static RaspiCam Options
 var photofile = "piout.jpg";
 
 
@@ -67,12 +67,12 @@ var MESSAGE_SCHEMA = {
 	 "photoawb": {
       "type": "string",
       "title": "Set automatic white balance (AWB)",
-      "default": "auto" 
+      "default": "auto"
     },
     "photoimxfx": {
       "type": "string",
       "title": "Set image effect (see options in docs)",
-      "default": "none" 
+      "default": "none"
     },
     "photometering": {
       "type": "string",
@@ -97,20 +97,7 @@ var OPTIONS_SCHEMA = {
   }
 };
 
-function SendPhoto( timestamp ){
-    console.log("photo child process has exited at " + timestamp );
-	base64Img.base64(photofile, function(err, data) {
-        if(payload.send_as_raw == false){
-		    console.log("Sending regular photo back to Octoblu " + timestamp );
-			self.emit('message', { devices: ['*'], "payload": {"pictures": data} });
-        }else if(payload.send_as_raw == true){ 
-		    console.log("Sending base64 photo back to Octoblu " + timestamp );		
-            var data = fs.readFileSync(photofile, { encoding: 'base64' });
-			self.emit('message', { "devices": ['*'], "payload": {"pictures": data}});
-        }
-	});
- }
- 
+
 function Plugin(){
   var self = this;
   self.options = {};
@@ -142,21 +129,21 @@ Plugin.prototype.onMessage = function(message){
      // colfx: message.payload.photocolfx, // seems to cause green images
         awb: message.payload.photoawb,
         metering: message.payload.photometering,
-        rotation: message.payload.photorotation	
-    };  
- var camera = new RaspiCam( opts );		  
+        rotation: message.payload.photorotation
+    };
+ var camera = new RaspiCam( opts );
 
 	 // Take photo
 	 // check photofile exists logic
 	try {
 		fs.accessSync(photofile, fs.W_OK);
 		console.log("photo image exists, delete it");
-		fs.unlinkSync(photofile);	
+		fs.unlinkSync(photofile);
 	} catch (err) {
 		// It isn't accessible
 		console.log("photo image does not exist " + photofile);
 	}
- 
+
 	// create raspicam object
 	 camera.start( opts );
 	 camera.on("read", function( err, timestamp, filename ){
@@ -165,6 +152,20 @@ Plugin.prototype.onMessage = function(message){
 	 //Send it back to Octoblu only when the process has completed
 	 camera.on("exit", SendPhoto);
  //}
+ 
+ function SendPhoto( timestamp ){
+     console.log("photo child process has exited at " + timestamp );
+ 	base64Img.base64(photofile, function(err, data) {
+         if(payload.send_as_raw == false){
+ 		    console.log("Sending regular photo back to Octoblu " + timestamp );
+ 			self.emit('message', { devices: ['*'], "payload": {"pictures": data} });
+     }else if(payload.send_as_raw == true){
+ 		    console.log("Sending base64 photo back to Octoblu " + timestamp );
+             var data = fs.readFileSync(photofile, { encoding: 'base64' });
+ 			self.emit('message', { "devices": ['*'], "payload": {"pictures": data}});
+         }
+ 	});
+  }
 };
 
 Plugin.prototype.onConfig = function(device){
